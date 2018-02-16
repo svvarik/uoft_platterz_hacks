@@ -1,0 +1,9 @@
+Take a picture, gives you ingredients of what’s in it. 
+
+Homeless shelters, pickup food from restaurants 
+
+Tinder for foodies
+
+User -> Get nutritional daily needs (Macros) Receipt -> get food products -> Get nutritional info -> Generate day's worth of recipes based on nutritional requirements
+
+Uber for food
