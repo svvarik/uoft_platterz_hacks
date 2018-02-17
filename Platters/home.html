@@ -14,4 +14,24 @@
         </select>
 		<input type=submit value="Calculate">
 	</body>
+	<script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+	<script>
+		$(function(){
+                $.ajax({
+                    type:'GET',
+                    url: 'https://api.edamam.com/search?q=chicken&app_id=ab58fc98&app_key=5b6c61520c1bef9394cc2ba6ea5752d9&from=0&to=3&calories=gte%20591,%20lte%20722&health=alcohol-free',
+                    success:function(data){
+                        // similar to enumerate in python
+                        $.each(data,function(i,item){
+                            $('<option>')
+                            .text("hi")
+                            .appendTo('.modify')
+                        })
+                    }
+                });
+            });
+	</script>
 </html>
