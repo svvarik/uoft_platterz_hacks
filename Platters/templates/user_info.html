@@ -1,45 +1,72 @@
-<!DOCTYPE html>
 <html>
 <head>
-	<title>Kettle Ting</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+<title>Kettle Ting</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
-
 <body>
-    <div class="container">
-        <div class="row">
-            <h2>Personal Information</h2>
-            </form class="col-md-4">
-                <input type="text" placeholder="Name"><br>
-                <input type="text" placeholder="Height"><br>
-                <input type="text" name="weight" placeholder="Weight"><br>
-                <Label>Food Likes<input type="text" name="food_likes" placeholder="Apples, onions, mushrooms"></Label><br>
-                <Label>Food Dislikes: <input type="text" name="food_dislikes" placeholder="oranges, leek, spinach"></Label><br>
-            </form>
-        </div>
-        <div class="row">
-            <h2>Health</h2>
-                </form class="col-xs-4">
-                    <label><input type="checkbox" name="health" value="vegetarian">Vegetarian</label>
-                    <label><input type="checkbox" name="health" value="vegan">Vegan</label>
-                    <label><input type="checkbox" name="health" value="sugar_conscious">Sugar Conscious</label><br>
-                    <label><input type="checkbox" name="health" value="peanut_free">Peanut Free</label>
-                    <label><input type="checkbox" name="health" value="treenut_free">Tree nut Free</label>
-                    <label><input type="checkbox" name="health" value="alcohol_free">Alcohol Free</label>
-              </form>
-        </div>
-        <div class="row">
-            <h2>Preferences</h2>
-                </form class="col-xs-4">
-                    <label><input type="checkbox" name="diet" value="high_protein">High Protein</label>
-                    <label><input type="checkbox" name="diet" value="low_carb">Low Carb</label><br>
-                    <label><input type="checkbox" name="diet" value="low_fat">Low Fat</label>
-                    <label><input type="checkbox" name="diet" value="balanced">Balanced</label>
-                </form>
-        </div>  
-    <input id="calc" type="submit" value="Calculate">
-    </div>
+        <header class="header7" id="header7">
+            <div class="intro center-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <form method="POST">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h3>Enter your Info</h3>
+                                        <p>We'll use this to generate a weekly meal plan</p>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <input class="form-control input-lg" name="user_name" id="user_name" placeholder="Name" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <input class="form-control input-lg" name="user_height" id="user_height" placeholder="Height" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <input class="form-control input-lg" name="user_weight" id="user_weight" placeholder="" type="text">
+                                        </div>
+                                        <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <input class="form-control input-lg" name="users_likes" id="user_likes" placeholder="Food likes ex 'apples, oranges'" type="text">
+                                        </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <input class="form-control input-lg" name="users_dislikes" id="user_dislikes" placeholder="Food dislikes ex 'apples, oranges'" type="text">
+                                        </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <h2>Health</h2>
+                                                <label><input type="checkbox" name="health" value="vegetarian">Vegetarian</label>
+                                                <label><input type="checkbox" name="health" value="vegan">Vegan</label>
+                                                <label><input type="checkbox" name="health" value="sugar_conscious">Sugar Conscious</label><br>
+                                                <label><input type="checkbox" name="health" value="peanut_free">Peanut Free</label>
+                                                <label><input type="checkbox" name="health" value="treenut_free">Tree nut Free</label>
+                                                <label><input type="checkbox" name="health" value="alcohol_free">Alcohol Free</label>
+                                        </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <h2>Diet</h2>
+                                                <label><input type="checkbox" name="diet" value="high_protein">High Protein</label>
+                                                <label><input type="checkbox" name="diet" value="low_carb">Low Carb</label><br>
+                                                <label><input type="checkbox" name="diet" value="low_fat">Low Fat</label>
+                                                <label><input type="checkbox" name="diet" value="balanced">Balanced</label>
+                                        </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-info btn-block button">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div><!-- row -->
+                </div><!-- intro -->
+            </div><!-- container -->
+        </header><!-- header -->
 </body>
 </html>

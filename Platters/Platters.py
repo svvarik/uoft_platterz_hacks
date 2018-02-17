@@ -1,5 +1,6 @@
-from flask import Flask
 from pymongo import MongoClient
+from flask import Flask, request, render_template
+
 
 app = Flask(__name__)
 
@@ -8,11 +9,13 @@ client = MongoClient(MONGODB_URI)
 db = client.get_database('platters_hacks')
 
 
-
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
-
+@app.route('/', methods=["POST", "GET"])
+def my_form():
+    if request.method == "GET":
+        return render_template('user_info.html')
+    else:
+        info = request.form['user_height']
+        return str(info)
 
 if __name__ == '__main__':
     app.run()
