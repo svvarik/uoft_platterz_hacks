@@ -12,16 +12,18 @@ class Recipe:
     cals - float: total calories for entire recipe
     mass - float: total weight for entire recipe
     tags - list of string : keywords for recipe (not guaranteed to be populated)
+    url - string : link to original website for recipe
     ingredients - list of Ingredient : ingredients corresponding to recipe
     nutrients - list of Nutrient : nutrients corresponding to recipe
     """
-    def __init__(self, label, image, servings, cals, mass, tags, ingredients, nutrients):
+    def __init__(self, label, image, servings, cals, mass, tags, url, ingredients, nutrients):
         self.label = label
         self.image = image
         self.servings = servings
         self.cals = cals
         self.mass = mass
         self.tags = tags
+        self.url = url
         self.ingredients = ingredients
         self.nutrients = nutrients
 
@@ -45,27 +47,27 @@ class Nutrient:
     label - string : english name of nutrient
     quantity - float: quantity of the nutrient
     unit - string: unit to attach to quantity
-    percentage - float: percentage of daily value
+    percentage - float: percentage of daily value (default to 0 if missing)
     """
 
-    def __init__(self, label, quantity, unit, percentage):
+    def __init__(self, label, quantity, unit, percentage=0):
         self.label = label
         self.quantity = quantity
         self.unit = unit
-        self.percentage
+        self.percentage = percentage
 
 
 def get_edamam_id():
     """Return app ID from environment variable for safety."""
-    return os.environ.get(EDAMAM_APP_ID)
+    return os.environ.get('EDAMAM_APP_ID')
 
 
 def get_edamam_key():
     """Return secret key from environment variable for safety."""
-    return os.environ.get(EDAMAM_KEY)
+    return os.environ.get('EDAMAM_KEY')
 
 
-def query_recipes(likes, dislikes, diet, health):
+def query_recipes(likes, dislikes, diet, health, q=''):
     """
     Send a GET request to Edamam to search first 100 recipe results for matching
     query inputs. Returns a list of Recipe objects.
@@ -74,14 +76,14 @@ def query_recipes(likes, dislikes, diet, health):
     dislikes - list of strings : keywords of foods user dislikes
     diet - list of strings : keywords of Edamam diet filters
     health - list of strings : keywords of Edamam health filters
+    q - string : search query string, leave empty to get most general search
     """
 
-    PARAMETERS = {'q':[''], 'app_id':[get_edamam_id()], 'app_key':[get_edamam_key()], 'from':[0], 'to':[100], 'diet':diet, 'health':health}
+    PARAMETERS = {'q':[q], 'app_id':[get_edamam_id()], 'app_key':[get_edamam_key()], 'from':[0], 'to':[100], 'diet':diet, 'health':health}
 
     request = requests.get(url = URL, params = PARAMETERS)
     response = request.json()
     recipes = parse_response(response)
-    #TODO:Potentially pare down list by ranking with likes/dislikes list here
 
     return recipes
 
@@ -106,9 +108,13 @@ def parse_response(response):
         raw_nutrients = recipe['totalNutrients']
         raw_nutrient_percentages = recipe['totalDaily']
         for nutrient in raw_nutrients.keys():
-            nutrients.append(Nutrient(raw_nutrients[nutrient]['label'], raw_nutrients[nutrient]['quantity'], raw_nutrients[nutrient]['unit'], raw_nutrient_percentages[nutrient]['quantity']))
+
+            if nutrient in raw_nutrient_percentages:
+                nutrients.append(Nutrient(raw_nutrients[nutrient]['label'], raw_nutrients[nutrient]['quantity'], raw_nutrients[nutrient]['unit'], raw_nutrient_percentages[nutrient]['quantity']))
+            else:
+                nutrients.append(Nutrient(raw_nutrients[nutrient]['label'], raw_nutrients[nutrient]['quantity'], raw_nutrients[nutrient]['unit']))
             
-        recipes.append(Recipe(recipe['label'], recipe['image'], recipe['yield'], recipe['calories'], recipe['totalWeight'], tags, ingredients, nutrients))
+        recipes.append(Recipe(recipe['label'], recipe['image'], recipe['yield'], recipe['calories'], recipe['totalWeight'], tags, recipe['url'], ingredients, nutrients))
     return recipes
 
 
