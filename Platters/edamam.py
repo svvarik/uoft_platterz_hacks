@@ -48,22 +48,21 @@ class Nutrient:
     percentage - float: percentage of daily value
     """
 
-    def __init__(self, label, quantity, unit, percentage):
+    def __init__(self, label, quantity, unit):
         self.label = label
         self.quantity = quantity
         self.unit = unit
-        self.percentage
 
-
+#TODO FIX ID
 def get_edamam_id():
     """Return app ID from environment variable for safety."""
-    return os.environ.get(EDAMAM_APP_ID)
+    return
 
 
+#TODO FIX KEY
 def get_edamam_key():
     """Return secret key from environment variable for safety."""
-    return os.environ.get(EDAMAM_KEY)
-
+    return
 
 def query_recipes(likes, dislikes, diet, health):
     """
@@ -106,7 +105,7 @@ def parse_response(response):
         raw_nutrients = recipe['totalNutrients']
         raw_nutrient_percentages = recipe['totalDaily']
         for nutrient in raw_nutrients.keys():
-            nutrients.append(Nutrient(raw_nutrients[nutrient]['label'], raw_nutrients[nutrient]['quantity'], raw_nutrients[nutrient]['unit'], raw_nutrient_percentages[nutrient]['quantity']))
+            nutrients.append(Nutrient(raw_nutrients[nutrient]['label'], raw_nutrients[nutrient]['quantity'], raw_nutrients[nutrient]['unit']))
             
         recipes.append(Recipe(recipe['label'], recipe['image'], recipe['yield'], recipe['calories'], recipe['totalWeight'], tags, ingredients, nutrients))
     return recipes
