@@ -1,5 +1,4 @@
-import os
-import requests
+import os, requests, heapq
 
 SEARCH_URL = 'http://api.yummly.com/v1/api/recipes'
 GET_URL = 'http://api.yummly.com/v1/api/recipe/'
@@ -80,14 +79,25 @@ def search_recipes(likes, dislikes, diet, allergy, courses, results, q=''):
         PARAMETERS['allowedCourse[]'] = courses
 
     PARAMETERS['maxResult'] = results
-    print(PARAMETERS)
-    #PARAMETERS = {'q':[q], '_app_id':[get_app_id()], '_app_key':[get_app_key()], 'requirePictures':['true'], 'excludedIngredient[]':dislikes, 'allowedDiet[]':diet, 'allowedAllergy[]':allergy, 'allowedCourse[]':courses, 'maxResult':[results]}
 
     request = requests.get(url = SEARCH_URL, params = PARAMETERS)
     response = request.json()
     recipes = parse_search_response(response)
 
-    return recipes
+    queue_recipes = []
+    if not likes == [u'']:
+        for recipe in recipes:
+            rating = 0
+            for like in likes:
+                if like in recipe.ingredients:
+                    rating = rating - 1
+            heapq.heappush(queue_recipes,(rating, recipe))
+
+    else:
+        for recipe in recipes:
+            heapq.heappush(queue_recipes,(0, recipe))
+
+    return queue_recipes
 
 
 def parse_search_response(response):
