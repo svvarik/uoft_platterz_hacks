@@ -2,5 +2,3 @@ Idea
 
 User inputs food preferences, dislikes, allergies, profile -> Generates an editable table of recipes and a shopping list which you can download to PDF
 
-/Users/svvarik/PycharmProjects/untitled1
-
