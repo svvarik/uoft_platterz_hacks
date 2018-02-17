@@ -1,10 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+	<title>Kettle Ting</title>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
 </head>
-<body>
 
+<body>
+    <div class="container">
+        <form>
+        <div class="row">
+            <div class="col-md-4">
+                <input type="text" placeholder="Name"><br>
+                <input type="text" placeholder="Height"><br>
+                <input type="text" name="weight" placeholder="Weight"><br>
+                <Label>Food Likes<input type="text" name="food_likes" placeholder="Apples, onions, mushrooms"><br></Label>
+            </div>
+            <div class="col-md-4">
+                <Label>Food Dislikes: <input type="text" name="food_dislikes" placeholder="oranges, leek, spinach"><br></Label>
+            </div>
+            <div class="row">
+                <Title>Health</Title>
+              <div class="col-xs-4">
+                <label><input type="checkbox" name="health">Vegetarian</label>
+              </div>
+              <div class="col-xs-4">
+                <label><input type="checkbox" name="health">Vegan</label>
+              </div>
+              <div class="col-xs-4">
+                <label><input type="checkbox" name="health">Sugar Conscious</label>
+              </div>
+                <div class="col-xs-4">
+                <label><input type="checkbox" name="health">Peanut Free</label>
+              </div>
+                <div class="col-xs-4">
+                <label><input type="checkbox" name="health">Tree nut Free</label>
+              </div>
+                <div class="col-xs-4">
+                <label><input type="checkbox" name="health">Alcohol Free</label>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                <label><input type="checkbox" name="diet">High Protein</label>
+              </div>
+                <div class="col-xs-4">
+                <label><input type="checkbox" name="diet">Low Carb</label>
+              </div>
+                <div class="col-xs-4">
+                <label><input type="checkbox" name="diet">Low Fat</label>
+              </div>
+                <div class="col-xs-4">
+                <label><input type="checkbox" name="diet">Balanced</label>
+              </div>
+            </div>
+        </div>
+        </form>
+    </div>
 </body>
 </html>
