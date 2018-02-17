@@ -67,7 +67,7 @@ def get_edamam_key():
     return os.environ.get('EDAMAM_KEY')
 
 
-def query_recipes(likes, dislikes, diet, health):
+def query_recipes(likes, dislikes, diet, health, q=''):
     """
     Send a GET request to Edamam to search first 100 recipe results for matching
     query inputs. Returns a list of Recipe objects.
@@ -76,9 +76,10 @@ def query_recipes(likes, dislikes, diet, health):
     dislikes - list of strings : keywords of foods user dislikes
     diet - list of strings : keywords of Edamam diet filters
     health - list of strings : keywords of Edamam health filters
+    q - string : search query string, leave empty to get most general search
     """
 
-    PARAMETERS = {'q':[''], 'app_id':[get_edamam_id()], 'app_key':[get_edamam_key()], 'from':[0], 'to':[100], 'diet':diet, 'health':health}
+    PARAMETERS = {'q':[q], 'app_id':[get_edamam_id()], 'app_key':[get_edamam_key()], 'from':[0], 'to':[100], 'diet':diet, 'health':health}
 
     request = requests.get(url = URL, params = PARAMETERS)
     response = request.json()
