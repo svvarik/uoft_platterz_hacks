@@ -5,7 +5,7 @@ GET_URL = 'http://api.yummly.com/v1/api/recipe/'
 
 class Recipe:
     """
-    Object representing a recipe
+    Object representing a recipe.
     """
     def __init__(self, ID, name, ingredients, ingredient_lines, size='', images=[], nutrition=[], thumbnails=[], site='', cook_time=0):
         self.ID = ID        
@@ -124,20 +124,41 @@ def parse_search_response(response):
         get_request = requests.get(url = URL, params = PARAMETERS)
         get_response = get_request.json()
 
-        nutrition = []
-        if 'nutritionEstimates' in recipe.keys():
+        nutrition = {}
+        if 'nutritionEstimates' in get_response.keys():
             values = get_response['nutritionEstimates']
             for value in values:
-                nutrition.append(Nutrition(value[attribute], value[description], value[value], value[unit], value[name], value[abbreviation], value[plural], value[pluralAbbreviation]))
+                nutrition[value['attribute']] = {}
+
+                if 'description' in value.keys():
+                    nutrition[value['attribute']]['description'] = value['description']
+
+                if 'value' in value.keys():
+                    nutrition[value['attribute']]['value'] = value['value']
+
+                if 'unit' in value.keys():
+                    nutrition[value['attribute']]['unit'] = value['unit']
+
+                if 'name' in value.keys():
+                    nutrition[value['attribute']]['name'] = value['name']
+
+                if 'abbreviation' in value.keys():
+                    nutrition[value['attribute']]['abbreviation'] = value['abbreviation']
+
+                if 'plural' in value.keys():
+                    nutrition[value['attribute']]['plural'] = value['plural']
+
+                if 'pluralAbbreviation' in value.keys():
+                    nutrition[value['attribute']]['pluralAbbreviation'] = value['pluralAbbreviation']
 
         images = []
-        if 'images' in recipe.keys():
+        if 'images' in get_response.keys():
             images = get_response['images']
 
         size = ''
-        if 'yield' in recipe.keys():
+        if 'yield' in get_response.keys():
             size = get_response['yield']
-        
+
         recipes.append(Recipe(recipe['id'], recipe['recipeName'], recipe['ingredients'], get_response['ingredientLines'], size, images, nutrition, thumbnails, site, cook_time))
     return recipes
 
