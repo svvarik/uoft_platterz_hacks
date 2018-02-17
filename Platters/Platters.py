@@ -15,8 +15,9 @@ def my_form():
     if request.method == "GET":
         return render_template('user_info.html')
     else:
-        info = request.form['user_height']
-        return str(info)
+        info = request.form.getlist('diet')
+        return info
+
 
 if __name__ == '__main__':
     app.run()
