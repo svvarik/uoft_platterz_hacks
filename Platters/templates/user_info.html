@@ -9,38 +9,37 @@
 
 <body>
     <div class="container">
-        <form>
         <div class="row">
             <h2>Personal Information</h2>
-            <div class="col-md-4">
+            </form class="col-md-4">
                 <input type="text" placeholder="Name"><br>
                 <input type="text" placeholder="Height"><br>
                 <input type="text" name="weight" placeholder="Weight"><br>
-                <Label>Food Likes<input type="text" name="food_likes" placeholder="Apples, onions, mushrooms"><br></Label>
-                <Label>Food Dislikes: <input type="text" name="food_dislikes" placeholder="oranges, leek, spinach"><br></Label>
-            </div>
+                <Label>Food Likes<input type="text" name="food_likes" placeholder="Apples, onions, mushrooms"></Label><br>
+                <Label>Food Dislikes: <input type="text" name="food_dislikes" placeholder="oranges, leek, spinach"></Label><br>
+            </form>
         </div>
         <div class="row">
             <h2>Health</h2>
-              <div class="col-xs-4">
-                <label><input type="checkbox" name="health" value="vegetarian">Vegetarian</label>
-                <label><input type="checkbox" name="health" value="vegan">Vegan</label>
-                <label><input type="checkbox" name="health" value="sugar_conscious">Sugar Conscious</label>
-                <label><input type="checkbox" name="health" value="peanut_free">Peanut Free</label>
-                <label><input type="checkbox" name="health" value="treenut_free">Tree nut Free</label>
-                <label><input type="checkbox" name="health" value="alcohol_free">Alcohol Free</label>
-              </div>
+                </form class="col-xs-4">
+                    <label><input type="checkbox" name="health" value="vegetarian">Vegetarian</label>
+                    <label><input type="checkbox" name="health" value="vegan">Vegan</label>
+                    <label><input type="checkbox" name="health" value="sugar_conscious">Sugar Conscious</label><br>
+                    <label><input type="checkbox" name="health" value="peanut_free">Peanut Free</label>
+                    <label><input type="checkbox" name="health" value="treenut_free">Tree nut Free</label>
+                    <label><input type="checkbox" name="health" value="alcohol_free">Alcohol Free</label>
+              </form>
         </div>
         <div class="row">
             <h2>Preferences</h2>
-                <div class="col-xs-4">
-                <label><input type="checkbox" name="diet" value="high_protein">High Protein</label>
-                <label><input type="checkbox" name="diet" value="low_carb">Low Carb</label>
-                <label><input type="checkbox" name="diet" value="low_fat">Low Fat</label>
-                <label><input type="checkbox" name="diet" value="balanced">Balanced</label>
-              </div>
-        </div>
-        </form>
+                </form class="col-xs-4">
+                    <label><input type="checkbox" name="diet" value="high_protein">High Protein</label>
+                    <label><input type="checkbox" name="diet" value="low_carb">Low Carb</label><br>
+                    <label><input type="checkbox" name="diet" value="low_fat">Low Fat</label>
+                    <label><input type="checkbox" name="diet" value="balanced">Balanced</label>
+                </form>
+        </div>  
+    <input id="calc" type="submit" value="Calculate">
     </div>
 </body>
 </html>
