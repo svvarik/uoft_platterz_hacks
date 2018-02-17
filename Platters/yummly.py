@@ -62,7 +62,26 @@ def search_recipes(likes, dislikes, diet, allergy, courses, results, q=''):
     results - int : max number of results to request
     """
 
-    PARAMETERS = {'q':[q], '_app_id':[get_app_id()], '_app_key':[get_app_key()], 'requirePictures':['true'], 'excludedIngredient[]':dislikes, 'allowedDiet[]':diet, 'allowedAllergy[]':allergy, 'allowedCourse[]':courses, 'maxResult':[results]}
+    PARAMETERS = {'_app_id':[get_app_id()], '_app_key':[get_app_key()]}
+
+    if not dislikes == [u'']:
+        PARAMETERS['excludedIngredient[]'] = dislikes
+
+    if not q == '':
+        PARAMETERS['q'] = q
+
+    if not diet == []:
+        PARAMETERS['allowedDiet[]'] = diet
+
+    if not allergy == []:
+        PARAMETERS['allowedAllergy[]'] = diet
+
+    if not courses == []:
+        PARAMETERS['allowedCourse[]'] = courses
+
+    PARAMETERS['maxResult'] = results
+    print(PARAMETERS)
+    #PARAMETERS = {'q':[q], '_app_id':[get_app_id()], '_app_key':[get_app_key()], 'requirePictures':['true'], 'excludedIngredient[]':dislikes, 'allowedDiet[]':diet, 'allowedAllergy[]':allergy, 'allowedCourse[]':courses, 'maxResult':[results]}
 
     request = requests.get(url = SEARCH_URL, params = PARAMETERS)
     response = request.json()
