@@ -22,9 +22,9 @@ def my_form():
         likes = request.form['users_likes'].split(',')
         dislikes = request.form['users_dislikes'].split(',')
 
-        breakfast_recipes = yummly.search_recipes(likes, dislikes, diet, allergy, BREAKFAST_COURSE, [21])
-        lunch_recipes = yummly.search_recipes(likes, dislikes, diet, allergy, LUNCH_COURSE, [21])
-        dinner_recipes = yummly.search_recipes(likes, dislikes, diet, allergy, DINNER_COURSE, [21])
+        breakfast_recipes = yummly.search_recipes(likes, dislikes, diet, allergy, BREAKFAST_COURSE, [7])
+        lunch_recipes = yummly.search_recipes(likes, dislikes, diet, allergy, LUNCH_COURSE, [7])
+        dinner_recipes = yummly.search_recipes(likes, dislikes, diet, allergy, DINNER_COURSE, [7])
         
         answer = ''
         for i in range(len(breakfast_recipes)):
