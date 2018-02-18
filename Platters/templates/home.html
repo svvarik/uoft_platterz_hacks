@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<title>Kettle Ting</title>
+    <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<body>
@@ -25,48 +26,48 @@
                 </form>
             </div>
         </div>
-        <div>
+        <div class="container">
              <div class="row">
-                <div class="col-xs-4"><h3>Monday</h3></div>
-                 <div class="col-xs-4"><img src="{{ weeklyrecipes["Monday"]["Breakfast"][1].images[0] }}"></div>
-                 <div class="col-xs-4"><img src="{{ weeklyrecipes["Monday"]["Lunch"][1].images[0] }}"></div>
-                 <div class="col-xs-4"><img src="{{ weeklyrecipes["Monday"]["Dinner"][1].images[0] }}"></div>
+                <div class="col-xs-3"><h3>Tuesday</h3></div>
+                <div class="col-xs-3">{{ weeklyrecipes["Tuesday"]["Breakfast"][1].name }}</div>
+                 <div class="col-xs-3">{{ weeklyrecipes["Tuesday"]["Lunch"][1].name }}</div>
+                 <div class="col-xs-3">{{ weeklyrecipes["Tuesday"]["Dinner"][1].name }}</div>
              </div>
             <div class="row">
-                <div class="col-xs-4"><h3>Tuesday</h3></div>
-                <div class="col-xs-4"><img src="{{ weeklyrecipes["Tuesday"]["Breakfast"][1].images[0] }}"></div>
-                 <div class="col-xs-4"><img src="{{ weeklyrecipes["Tuesday"]["Lunch"][1].images[0] }}"></div>
-                 <div class="col-xs-4"><img src="{{ weeklyrecipes["Tuesday"]["Dinner"][1].images[0 }}"></div>
+                <div class="col-xs-3"><h3>Tuesday</h3></div>
+                <div class="col-xs-3">{{ weeklyrecipes["Tuesday"]["Breakfast"][1].name }}</div>
+                 <div class="col-xs-3">{{ weeklyrecipes["Tuesday"]["Lunch"][1].name }}</div>
+                 <div class="col-xs-3">{{ weeklyrecipes["Tuesday"]["Dinner"][1].name }}</div>
              </div>
             <div class="row">
-                <div class="col-xs-4"><h3>Wednesday</h3></div>
-                 <div class="col-xs-4"><img src="{{ weeklyrecipes["Wednesday"]["Breakfast"][1].images[0] }}"></div>
-                 <div class="col-xs-4"><img src="{{ weeklyrecipes["Wednesday"]["Lunch"][1].images[0] }}"></div>
-                 <div class="col-xs-4"><img src="{{ weeklyrecipes["Wednesday"]["Dinner"][1].images[0] }}"></div>
+                <div class="col-xs-3"><h3>Wednesday</h3></div>
+                 <div class="col-xs-3">{{ weeklyrecipes["Wednesday"]["Breakfast"][1].name }}</div>
+                 <div class="col-xs-3">{{ weeklyrecipes["Wednesday"]["Lunch"][1].name }}</div>
+                 <div class="col-xs-3">{{ weeklyrecipes["Wednesday"]["Dinner"][1].name }}</div>
              </div>
             <div class="row">
-                <div class="col-xs-4"><h3>Thursday</h3></div>
-                 <div class="col-xs-4"><img src="{{ weeklyrecipes["Thursday"]["Breakfast"][1].images[0] }}"></div>
-                 <div class="col-xs-4"><img src="{{ weeklyrecipes["Thursday"]["Lunch"][1].images[0] }}"></div>
-                 <div class="col-xs-4"><img src="{{ weeklyrecipes["Thursday"]["Dinner"][1].images[0] }}"></div>
+                <div class="col-xs-3"><h3>Thursday</h3></div>
+                 <div class="col-xs-3">{{ weeklyrecipes["Thursday"]["Breakfast"][1].name }}</div>
+                 <div class="col-xs-3">{{ weeklyrecipes["Thursday"]["Lunch"][1].name }}</div>
+                 <div class="col-xs-3">{{ weeklyrecipes["Thursday"]["Dinner"][1].name }}</div>
              </div>
             <div class="row">
-                <div class="col-xs-4"><h3>Friday</h3></div>
-                 <div class="col-xs-4"><img src="{{ weeklyrecipes["Friday"]["Breakfast"][1].images[0] }}"></div>
-                 <div class="col-xs-4"><img src="{{ weeklyrecipes["Friday"]["Lunch"][1].images[0] }}"></div>
-                 <div class="col-xs-4"><img src="{{ weeklyrecipes["Friday"]["Dinner"][1].images[0] }}"></div>
+                <div class="col-xs-3"><h3>Friday</h3></div>
+                 <div class="col-xs-3">{{ weeklyrecipes["Friday"]["Breakfast"][1].name }}</div>
+                 <div class="col-xs-3">{{ weeklyrecipes["Friday"]["Lunch"][1].name }}</div>
+                 <div class="col-xs-3">{{ weeklyrecipes["Friday"]["Dinner"][1].name }}</div>
              </div>
             <div class="row">
-                <div class="col-xs-4"><h3>Saturday</h3></div>
-                 <div class="col-xs-4"><img src="{{ weeklyrecipes["Saturday"]["Breakfast"][1].images[0] }}"></div>
-                 <div class="col-xs-4"><img src="{{ weeklyrecipes["Saturday"]["Lunch"][1].images[0] }}"></div>
-                 <div class="col-xs-4"><img src="{{ weeklyrecipes["Saturday"]["Dinner"][1].images[0] }}"></div>
+                <div class="col-xs-3"><h3>Saturday</h3></div>
+                 <div class="col-xs-3">{{ weeklyrecipes["Saturday"]["Breakfast"][1].name }}</div>
+                 <div class="col-xs-3">{{ weeklyrecipes["Saturday"]["Lunch"][1].name }}</div>
+                 <div class="col-xs-3">{{ weeklyrecipes["Saturday"]["Dinner"][1].name }}</div>
              </div>
             <div class="row">
-                <div class="col-xs-4"><h3>Sunday</h3></div>
-                 <div class="col-xs-4"><img src="{{ weeklyrecipes["Sunday"]["Breakfast"][1].images[0] }}"></div>
-                 <div class="col-xs-4"><img src="{{ weeklyrecipes["Sunday"]["Lunch"][1].images[0] }}"></div>
-                 <div class="col-xs-4"><img src="{{ weeklyrecipes["Sunday"]["Dinner"][1].images[0] }}"></div>
+                <div class="col-xs-3"><h3>Sunday</h3></div>
+                 <div class="col-xs-3">{{ weeklyrecipes["Sunday"]["Breakfast"][1].name }}</div>
+                 <div class="col-xs-3">{{ weeklyrecipes["Sunday"]["Lunch"][1].name }}</div>
+                 <div class="col-xs-3">{{ weeklyrecipes["Sunday"]["Dinner"][1].name }}</div>
              </div>
         </div>
 	</body>

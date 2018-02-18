@@ -1,12 +1,6 @@
-PAL = {'extremely_inactve': 1.35, 'sedentary': 1.53, 'moderately_active': 1.76, 'vigorously_active': 2.25, 'extremely_active': 2.4}
+PAL = {'extremely_inactve': 1.1, 'sedentary': 1.2, 'moderately_active': 1.4, 'vigorously_active': 1.8, 'extremely_active': 2.0}
 
-kg_to_lbs = 2.20462
-
-cm_to_inches = 0.393701
-
-
-
-def calculate_bmr(imperial_or_metric, weight, sex, age, height, activity_level):
+def calculate_tee(weight, sex, age, height, activity_level):
     '''
     Calculate calories given a user profile.
 
@@ -25,17 +19,12 @@ def calculate_bmr(imperial_or_metric, weight, sex, age, height, activity_level):
 
     user_bmr = 0
 
-    if imperial_or_metric == 'imperial':
-        if sex == 'female':
-            user_bmr = (10 * (weight / kg_to_lbs)) + (6.25 * (height / cm_to_inches)) - (5 * age) - 161
-        if sex == 'male':
-            user_bmr = (10 * (weight / kg_to_lbs)) + (6.25 * (height / cm_to_inches)) - (5 * age) + 5
-
-    if imperial_or_metric == 'metric':
-        if sex == 'female':
-            user_bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161
-        if sex == 'male':
-            user_bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5
+    if sex == 'female':
+        user_bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161
+    if sex == 'male':
+        user_bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5
+    if sex == 'other':
+        user_bmr = (10 * weight) + (6.25 * height) - (5 * age) - 83
 
     return user_bmr * PAL[activity_level]
 

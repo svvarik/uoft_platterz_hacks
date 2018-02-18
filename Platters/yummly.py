@@ -7,7 +7,7 @@ class Recipe:
     """
     Object representing a recipe.
     """
-    def __init__(self, ID, name, ingredients, ingredient_lines, size='', images=[], nutrition=[], thumbnails=[], site='', cook_time=0):
+    def __init__(self, ID, name, ingredients, ingredient_lines, size='', images=[], nutrition={}, thumbnails=[], site='', cook_time=0):
         self.ID = ID        
         self.name = name
         self.ingredients = ingredients
@@ -43,9 +43,11 @@ def get_app_id():
     return os.environ.get('YUMMLY_APP_ID')
 
 
+
 def get_app_key():
     """Return secret key from environment variable for safety."""
     return os.environ.get('YUMMLY_KEY')
+
 
 
 def search_recipes(likes, dislikes, diet, allergy, courses, results, q=''):
@@ -85,17 +87,20 @@ def search_recipes(likes, dislikes, diet, allergy, courses, results, q=''):
     recipes = parse_search_response(response)
 
     queue_recipes = []
-    if not likes == [u'']:
-        for recipe in recipes:
-            rating = 0
-            for like in likes:
-                if like in recipe.ingredients:
-                    rating = rating - 1
-            heapq.heappush(queue_recipes,(rating, recipe))
+    # if not likes == [u'']:
+    #     for recipe in recipes:
+    #         rating = 0
+    #         for like in likes:
+    #             if like in recipe.ingredients:
+    #                 rating = rating - 1
+    #         heapq.heappush(queue_recipes,(rating, recipe))
+    #
+    # else:
+    #     for recipe in recipes:
+    #         heapq.heappush(queue_recipes,(0, recipe))
 
-    else:
-        for recipe in recipes:
-            heapq.heappush(queue_recipes,(0, recipe))
+    for recipe in recipes:
+        queue_recipes.append((0, recipe))
 
     return queue_recipes
 
@@ -124,9 +129,13 @@ def parse_search_response(response):
         get_request = requests.get(url = URL, params = PARAMETERS)
         get_response = get_request.json()
 
+        hasNutrition = False
         nutrition = {}
         if 'nutritionEstimates' in get_response.keys():
             values = get_response['nutritionEstimates']
+            if len(values) > 0:
+                hasNutrition = True
+
             for value in values:
                 nutrition[value['attribute']] = {}
 
@@ -151,6 +160,10 @@ def parse_search_response(response):
                 if 'pluralAbbreviation' in value.keys():
                     nutrition[value['attribute']]['pluralAbbreviation'] = value['pluralAbbreviation']
 
+        if not("ENERC_KCAL" in get_response['nutritionEstimates']):
+             nutrition['ENERC_KCAL'] = {}
+             nutrition['ENERC_KCAL']['value'] = 500
+
         images = []
         if 'images' in get_response.keys():
             images = get_response['images']
@@ -159,7 +172,8 @@ def parse_search_response(response):
         if 'yield' in get_response.keys():
             size = get_response['yield']
 
-        recipes.append(Recipe(recipe['id'], recipe['recipeName'], recipe['ingredients'], get_response['ingredientLines'], size, images, nutrition, thumbnails, site, cook_time))
+        if hasNutrition:
+            recipes.append(Recipe(recipe['id'], recipe['recipeName'], recipe['ingredients'], get_response['ingredientLines'], size, images, nutrition, thumbnails, site, cook_time))
     return recipes
 
 

@@ -1,6 +1,7 @@
 <html>
 <head>
 <title>Kettle Ting</title>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 <body>
@@ -40,9 +41,10 @@
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="form-group">
-                                            <input class="form-control input-lg" name="user_weight" id="user_weight" placeholder="Age" type="number">
+                                            <input class="form-control input-lg" name="user_age" id="user_age" placeholder="Age" type="number">
                                         </div>
-                                    </di
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="form-group">
                                         <div class="col-xs-12">
@@ -51,7 +53,7 @@
                                                 <label><input type="radio" name="user_gender" value="male">Male</label>
                                                 <label><input type="radio" name="user_gender" value="other">Other</label>
                                         </div>
-                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group">
@@ -63,61 +65,59 @@
                                                 <label><input type="radio" name="user_activity" value="vigorously_active">I hit the gym or workout everyday!</label>
                                                 <label><input type="radio" name="user_activity" value="extremely_active">Michael Phelps would lose to me.</label>
                                         </div>
-                                        </div>
-                                </div>
-                                <div class="row">
-                                        <div class="col-xs-12">
-                                        <div class="form-group">
-                                            <input class="form-control input-lg" name="users_likes" id="user_likes" placeholder="Food likes ex 'apples, oranges'" type="text">
-                                        </div>
-                                        </div>
-                                </div>
-                                <div class="row">
-                                        <div class="col-xs-12">
-                                        <div class="form-group">
-                                            <input class="form-control input-lg" name="users_dislikes" id="user_dislikes" placeholder="Food dislikes ex 'apples, oranges'" type="text">
-                                        </div>
-                                        </div>
-                                </div>
-                                <div class="row">
-                                        <div class="col-xs-12">
-                                        <div class="form-group">
-                                            <h3>Diet Restrictions</h3>
-                                                <label><input type="checkbox" name="diet" value="388^Lacto vegetarian">Lacto vegetarian</label>
-                                                <label><input type="checkbox" name="diet" value="389^Ovo vegetarian">Ovo vegatarian</label>
-                                                <label><input type="checkbox" name="diet" value="390^Pescetarian">Pescetarian</label><br>
-                                                <label><input type="checkbox" name="diet" value="386^Vegan">Vegan</label>
-                                                <label><input type="checkbox" name="diet" value="387^Lacto-ovo vegetarian">Vegetarian</label>
-                                        </div>
-                                        </div>
-                                </div>
-                                <div class="row">
-                                        <div class="col-xs-12">
-                                        <div class="form-group">
-                                            <h3>Allergies</h3>
-                                                <label><input type="checkbox" name="allergies" value="396^Dairy-Free">Dairy</label>
-                                                <label><input type="checkbox" name="allergies" value="397^Egg-Free">Eggs</label><br>
-                                                <label><input type="checkbox" name="allergies" value="393^Gluten-Free">Gluten</label>
-                                                <label><input type="checkbox" name="allergies" value="394^Peanut-Free">Peanuts</label>
-                                                <label><input type="checkbox" name="allergies" value="398^Seafood-Free">Seafood</label>
-                                                <label><input type="checkbox" name="allergies" value="399^Sesame-Free">Sesame</label>
-                                                <label><input type="checkbox" name="allergies" value="400^Soy-Free">Soy</label>
-                                                <label><input type="checkbox" name="allergies" value="401^Sulfite-Free">Sulfite</label>
-                                                <label><input type="checkbox" name="allergies" value="395^Tree Nut-Free">Treenuts</label>
-                                                <label><input type="checkbox" name="allergies" value="392^Wheat-Free">Wheat</label>
-                                        </div>
-                                        </div>
-                                        </div>
-                                        <button style="background-color:#99000d; align-content: center; border-color: #ffffff; color: #ffffff" type="submit" class="btn btn-info btn-block button">Submit</button>
-                                    </form>
                                     </div>
                                 </div>
+                                <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="form-group">
+                                                <input class="form-control input-lg" name="users_likes" id="user_likes" placeholder="Food likes ex 'apples, oranges'" type="text">
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="form-group">
+                                              <input class="form-control input-lg" name="users_dislikes" id="user_dislikes" placeholder="Food dislikes ex 'apples, oranges'" type="text">
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="form-group">
+                                                <h3>Diet Restrictions</h3>
+                                                    <label><input type="checkbox" name="diet" value="388^Lacto vegetarian">Lacto vegetarian</label>
+                                                    <label><input type="checkbox" name="diet" value="389^Ovo vegetarian">Ovo vegatarian</label>
+                                                    <label><input type="checkbox" name="diet" value="390^Pescetarian">Pescetarian</label><br>
+                                                    <label><input type="checkbox" name="diet" value="386^Vegan">Vegan</label>
+                                                    <label><input type="checkbox" name="diet" value="387^Lacto-ovo vegetarian">Vegetarian</label>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="form-group">
+                                                <h3>Allergies</h3>
+                                                    <label><input type="checkbox" name="allergies" value="396^Dairy-Free">Dairy</label>
+                                                    <label><input type="checkbox" name="allergies" value="397^Egg-Free">Eggs</label><br>
+                                                    <label><input type="checkbox" name="allergies" value="393^Gluten-Free">Gluten</label>
+                                                    <label><input type="checkbox" name="allergies" value="394^Peanut-Free">Peanuts</label>
+                                                    <label><input type="checkbox" name="allergies" value="398^Seafood-Free">Seafood</label>
+                                                    <label><input type="checkbox" name="allergies" value="399^Sesame-Free">Sesame</label>
+                                                    <label><input type="checkbox" name="allergies" value="400^Soy-Free">Soy</label>
+                                                    <label><input type="checkbox" name="allergies" value="401^Sulfite-Free">Sulfite</label>
+                                                    <label><input type="checkbox" name="allergies" value="395^Tree Nut-Free">Treenuts</label>
+                                                    <label><input type="checkbox" name="allergies" value="392^Wheat-Free">Wheat</label>
+                                            </div>
+                                        </div>
+                                </div>
+                                <button style="background-color:#99000d; align-content: center; border-color: #ffffff; color: #ffffff" type="submit" class="btn btn-info btn-block button">Submit</button>
+                            </form>
                         </div>
-                    </div><!-- row -->
-                </div><!-- intro -->
+                    </div>
+                </div>
+</div>
 <div class="row">
 </div>
 <div class="navbar navbar-default" style="margin-bottom: 0; background-color: #99000d"></div>
-    </div>
 </body>
 </html>
